@@ -224,7 +224,12 @@ p.lede { color: var(--ink-soft); font-size: 1.05rem; max-width: 620px; }
 /* ===== Team (ansatte) ===== */
 .team-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 24px; }
 .team-card { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; text-align: center; box-shadow: var(--shadow); }
-.team-card img { width: 100%; aspect-ratio: 1/1; object-fit: cover; }
+.team-avatar {
+  width: 100%; aspect-ratio: 1/1; display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-weight: 600; font-size: 2rem; color: #fff;
+}
+.team-avatar.blue { background: linear-gradient(135deg, var(--brand-blue), var(--brand-blue-dark)); }
+.team-avatar.amber { background: linear-gradient(135deg, var(--brand-amber), var(--brand-amber-dark)); }
 .team-card .team-body { padding: 18px; }
 .team-card .role { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--brand-blue-dark); margin-bottom: 6px; }
 .team-group-title { margin: 44px 0 4px; color: var(--brand-blue-dark); }
