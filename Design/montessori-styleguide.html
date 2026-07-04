@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Holmestrand Internasjonale Montessori — Stilguide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  /* ============================================
+     TOKENS — designsystem for HIM
+     Kjernefarger hentet direkte fra logoen.
+     Primærfarger (rødt/gult/grønt) hentet fra
+     fotografier, brukt sparsomt (kort/ikoner/aksenter),
+     aldri som store flater eller UI-basisfarge.
+     ============================================ */
+  :root {
+    /* Merkevarefarger — fra logoen */
+    --brand-blue: #01ADE6;       /* "Montessori" — primær */
+    --brand-blue-dark: #0189B8;  /* hover/aktiv-tilstand */
+    --brand-amber: #D8AE59;      /* "HOLMESTRAND" — sekundær/aksent */
+    --brand-amber-dark: #B98F3E;
+
+    /* Montessori-primærfarger — sparsom bruk (ikoner, kort, illustrasjon) */
+    --accent-red: #D9483C;
+    --accent-yellow: #E8B93C;
+    --accent-green: #4F9B5C;
+
+    /* Nøytrale — bærer siden, holder ro rundt fargene */
+    --ink: #22292F;              /* brødtekst */
+    --ink-soft: #5B6570;         /* underordnet tekst */
+    --paper: #FFFFFF;
+    --paper-warm: #FAF7F1;       /* varm off-white seksjonsbakgrunn */
+    --line: #E7E2D8;
+
+    /* Typografi */
+    --font-display: 'Fredoka', system-ui, sans-serif;
+    --font-body: 'Work Sans', system-ui, sans-serif;
+
+    /* Rytme */
+    --radius: 16px;
+    --shadow: 0 4px 20px rgba(34,41,47,0.08);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: var(--font-body);
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.55;
+  }
+
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 48px 24px 96px; }
+
+  h1, h2, h3 { font-family: var(--font-display); font-weight: 600; margin: 0 0 8px; }
+  h1 { font-size: clamp(2rem, 4vw, 2.75rem); }
+  h2 { font-size: 1.5rem; color: var(--brand-blue-dark); margin-top: 64px; padding-top: 16px; border-top: 1px solid var(--line); }
+  p.lede { color: var(--ink-soft); font-size: 1.05rem; max-width: 620px; }
+
+  /* Fargesvatch */
+  .swatch-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; margin-top: 24px; }
+  .swatch { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); background: var(--paper); }
+  .swatch-color { height: 90px; }
+  .swatch-label { padding: 12px 14px; font-size: 0.85rem; }
+  .swatch-label strong { display: block; font-family: var(--font-display); font-size: 0.95rem; }
+  .swatch-label code { color: var(--ink-soft); }
+
+  /* Typografi-demo */
+  .type-row { display: flex; align-items: baseline; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .type-row .label { width: 130px; flex-shrink: 0; font-size: 0.8rem; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.04em; }
+
+  /* Knapper */
+  .btn-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 20px; }
+  .btn { font-family: var(--font-display); font-weight: 600; font-size: 0.95rem; padding: 13px 26px; border-radius: 999px; border: none; cursor: pointer; text-decoration: none; display: inline-block; transition: transform 0.15s ease, box-shadow 0.15s ease; }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-primary { background: var(--brand-blue); color: white; box-shadow: 0 4px 14px rgba(1,173,230,0.35); }
+  .btn-primary:hover { background: var(--brand-blue-dark); }
+  .btn-secondary { background: var(--brand-amber); color: var(--ink); }
+  .btn-secondary:hover { background: var(--brand-amber-dark); }
+  .btn-ghost { background: transparent; color: var(--brand-blue-dark); border: 2px solid var(--line); }
+  .btn-ghost:hover { border-color: var(--brand-blue); }
+
+  /* Kort — barnehage / skole */
+  .card-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-top: 24px; }
+  .card { background: var(--paper-warm); border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow); border-top: 5px solid var(--brand-blue); }
+  .card.amber { border-top-color: var(--brand-amber); }
+  .card h3 { font-size: 1.2rem; }
+  .card p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 18px; }
+
+  /* Aksent-ikonprikker (primærfarger fra bildene, brukt sparsomt) */
+  .dot-row { display: flex; gap: 10px; margin-top: 16px; }
+  .dot { width: 14px; height: 14px; border-radius: 50%; }
+
+  /* Nav-eksempel */
+  .nav-demo { display: flex; align-items: center; justify-content: space-between; padding: 18px 24px; background: var(--paper); border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 24px; }
+  .nav-demo .logotype { font-family: var(--font-display); font-weight: 600; color: var(--brand-blue-dark); }
+  .nav-demo .logotype span { color: var(--brand-amber-dark); }
+  .nav-links { display: flex; gap: 28px; font-size: 0.95rem; font-weight: 500; }
+  .nav-links a { color: var(--ink); text-decoration: none; }
+  .nav-links a:hover { color: var(--brand-blue); }
+
+  .note { background: var(--paper-warm); border-left: 4px solid var(--brand-amber); padding: 16px 20px; border-radius: 0 12px 12px 0; font-size: 0.9rem; color: var(--ink-soft); margin-top: 16px; }
+  code { background: var(--paper-warm); padding: 2px 6px; border-radius: 4px; font-size: 0.85em; }
+
+  /* Hero-seksjon (forside) */
+  .hero { position: relative; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); margin-top: 24px; height: 420px; display: flex; align-items: flex-end; }
+  .hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+  .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(1,54,74,0.72) 0%, rgba(1,54,74,0.25) 45%, rgba(1,54,74,0) 70%); z-index: 1; }
+  .hero-content { position: relative; z-index: 2; padding: 36px 40px; color: white; }
+  .hero-content .eyebrow { font-family: var(--font-display); font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--brand-amber); margin-bottom: 6px; }
+  .hero-content h2 { color: white; border: none; margin: 0 0 6px; padding: 0; font-size: clamp(1.6rem, 3vw, 2.2rem); }
+  .hero-content p { color: rgba(255,255,255,0.88); max-width: 480px; margin: 0 0 18px; font-size: 0.98rem; }
+  .hero-content .btn-row { margin-top: 0; }
+
+  /* Bildegalleri — placeholder-kort til Claude Code */
+  .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(2, 130px); gap: 14px; margin-top: 20px; }
+  .gallery-grid .g-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+  .gallery-grid .g-item:nth-child(4) { grid-column: span 2; }
+  .g-item { border-radius: 14px; display: flex; align-items: center; justify-content: center; text-align: center; padding: 10px; font-size: 0.78rem; font-weight: 500; color: white; border: 2px dashed rgba(255,255,255,0.5); position: relative; overflow: hidden; }
+  .g-item span { position: relative; z-index: 1; background: rgba(1,41,56,0.35); padding: 6px 10px; border-radius: 8px; }
+  .g-item.p1 { background: linear-gradient(135deg, var(--brand-blue), var(--brand-blue-dark)); }
+  .g-item.p2 { background: linear-gradient(135deg, var(--accent-yellow), var(--brand-amber)); }
+  .g-item.p3 { background: linear-gradient(135deg, var(--accent-green), #3a7a45); }
+  .g-item.p4 { background: linear-gradient(135deg, var(--accent-red), #b83a30); }
+  .g-item.p5 { background: linear-gradient(135deg, var(--brand-amber), var(--accent-yellow)); }
+  @media (max-width: 640px) {
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(3, 110px); }
+    .gallery-grid .g-item:nth-child(1) { grid-column: span 2; grid-row: span 1; }
+    .gallery-grid .g-item:nth-child(4) { grid-column: span 1; }
+  }
+
+  /* Sideoversikt */
+  .sitemap { display: flex; flex-direction: column; gap: 16px; margin-top: 24px; }
+  .page-block { display: grid; grid-template-columns: 220px 1fr; gap: 20px; background: var(--paper-warm); border-radius: var(--radius); padding: 22px 26px; box-shadow: var(--shadow); border-left: 5px solid var(--brand-blue); }
+  .page-block.amber { border-left-color: var(--brand-amber); }
+  .page-block .page-num { font-family: var(--font-display); font-size: 0.75rem; color: var(--brand-blue-dark); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+  .page-block.amber .page-num { color: var(--brand-amber-dark); }
+  .page-block h3 { margin: 0; font-size: 1.15rem; }
+  .page-block ul { margin: 4px 0 0; padding-left: 18px; color: var(--ink-soft); font-size: 0.92rem; }
+  .page-block li { margin-bottom: 4px; }
+  @media (max-width: 640px) {
+    .page-block { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Holmestrand Internasjonale Montessori</h1>
+  <p class="lede">Startpakke for design­system — farger, typografi og komponenter hentet fra den eksisterende logoen. Til bruk som referanse ved bygging av ny nettside.</p>
+
+  <h2>Merkevarefarger (fra logo)</h2>
+  <div class="swatch-grid">
+    <div class="swatch">
+      <div class="swatch-color" style="background:var(--brand-blue)"></div>
+      <div class="swatch-label"><strong>Montessori-blå</strong><code>#01ADE6</code></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:var(--brand-blue-dark)"></div>
+      <div class="swatch-label"><strong>Blå (hover/aktiv)</strong><code>#0189B8</code></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:var(--brand-amber)"></div>
+      <div class="swatch-label"><strong>Holmestrand-amber</strong><code>#D8AE59</code></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:var(--brand-amber-dark)"></div>
+      <div class="swatch-label"><strong>Amber (hover/aktiv)</strong><code>#B98F3E</code></div>
+    </div>
+  </div>
+  <div class="note">Disse to (blå + amber) er de eneste fargene som faktisk finnes i logoen — brukes som primær- og sekundærfarge i hele UI-et (knapper, lenker, ikoner, rammer).</div>
+
+  <h2>Nøytrale (bærer siden)</h2>
+  <div class="swatch-grid">
+    <div class="swatch">
+      <div class="swatch-color" style="background:var(--paper); border-bottom:1px solid var(--line)"></div>
+      <div class="swatch-label"><strong>Paper</strong><code>#FFFFFF</code></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:var(--paper-warm)"></div>
+      <div class="swatch-label"><strong>Warm paper</strong><code>#FAF7F1</code></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:var(--ink)"></div>
+      <div class="swatch-label"><strong>Ink (tekst)</strong><code>#22292F</code></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:var(--ink-soft)"></div>
+      <div class="swatch-label"><strong>Ink soft</strong><code>#5B6570</code></div>
+    </div>
+  </div>
+
+  <h2>Montessori-aksenter (bruk sparsomt — ikoner, kort, illustrasjon)</h2>
+  <div class="swatch-grid">
+    <div class="swatch">
+      <div class="swatch-color" style="background:var(--accent-red)"></div>
+      <div class="swatch-label"><strong>Rød</strong><code>#D9483C</code></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:var(--accent-yellow)"></div>
+      <div class="swatch-label"><strong>Gul</strong><code>#E8B93C</code></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:var(--accent-green)"></div>
+      <div class="swatch-label"><strong>Grønn</strong><code>#4F9B5C</code></div>
+    </div>
+  </div>
+  <div class="note">Disse tre er hentet fra fallskjermbildet/Montessori-materiell-tradisjonen. Bruk kun til småelementer (prikker, ikonbakgrunner, kortkanter) — <strong>aldri</strong> som knappefarge, navigasjonsbakgrunn eller store flater. De skal krydre, ikke styre.</div>
+  <div class="dot-row">
+    <div class="dot" style="background:var(--accent-red)"></div>
+    <div class="dot" style="background:var(--accent-yellow)"></div>
+    <div class="dot" style="background:var(--accent-green)"></div>
+    <div class="dot" style="background:var(--brand-blue)"></div>
+    <div class="dot" style="background:var(--brand-amber)"></div>
+  </div>
+
+  <h2>Typografi</h2>
+  <div class="type-row"><div class="label">Display / H1</div><div style="font-family:var(--font-display); font-weight:600; font-size:2rem;">Læring gjennom lek og nysgjerrighet</div></div>
+  <div class="type-row"><div class="label">Display / H2</div><div style="font-family:var(--font-display); font-weight:600; font-size:1.4rem;">Barnehage og skole i Holmestrand</div></div>
+  <div class="type-row"><div class="label">Body</div><div style="font-family:var(--font-body); font-size:1rem;">Montessori-pedagogikken bygger på respekt for barnets egen utvikling, med konkretiseringsmateriell og aldersblandede grupper.</div></div>
+  <div class="type-row"><div class="label">Body soft</div><div style="font-family:var(--font-body); font-size:0.9rem; color:var(--ink-soft);">Åpningstider, kontaktinfo og annen underordnet informasjon.</div></div>
+  <div class="note">Fredoka (display) — rund, vennlig, leken uten å bli barnslig. Work Sans (body) — nøytral og lettlest for lengre tekst. Begge lastes fra Google Fonts i <code>&lt;head&gt;</code>.</div>
+
+  <h2>Knapper</h2>
+  <div class="btn-row">
+    <a href="#" class="btn btn-primary">Søk om plass</a>
+    <a href="#" class="btn btn-secondary">Kontakt oss</a>
+    <a href="#" class="btn btn-ghost">Les mer</a>
+  </div>
+
+  <h2>Navigasjon (eksempel)</h2>
+  <div class="nav-demo">
+    <div class="logotype">Holmestrand <span>Internasjonale</span> Montessori</div>
+    <div class="nav-links">
+      <a href="#">Barnehage</a>
+      <a href="#">Skole</a>
+      <a href="#">Ny hos oss</a>
+      <a href="#">Kontakt</a>
+    </div>
+  </div>
+
+  <h2>Kort — barnehage / skole</h2>
+  <div class="card-row">
+    <div class="card">
+      <h3>Barnehagen</h3>
+      <p>Aldersblandede grupper, konkretiseringsmateriell og trygge rammer for de yngste.</p>
+      <a href="#" class="btn btn-primary" style="padding:10px 20px; font-size:0.85rem;">Om barnehagen</a>
+    </div>
+    <div class="card amber">
+      <h3>Skolen</h3>
+      <p>Barnetrinn og ungdomstrinn med Montessori-pedagogikk gjennom hele skoleløpet.</p>
+      <a href="#" class="btn btn-secondary" style="padding:10px 20px; font-size:0.85rem;">Om skolen</a>
+    </div>
+  </div>
+
+  <h2>Forside — hero og bildebruk</h2>
+  <p class="lede" style="margin-top:-8px;">Ekte bilde fra skolen brukt som hero. De resterende feltene er plassholdere i merkevarefargene — bytt ut med ekte foto fra skolehverdagen eller lisensierte stockbilder når de er klare.</p>
+
+  <div class="hero">
+    <img src="hero-fallskjerm.png" alt="Barn leker med fallskjerm i gymsal, Holmestrand Internasjonale Montessori">
+    <div class="hero-content">
+      <div class="eyebrow">Holmestrand Internasjonale Montessori</div>
+      <h2>Læring gjennom lek og nysgjerrighet</h2>
+      <p>Barnehage og skole i Holmestrand, bygget på Montessori-pedagogikkens respekt for hvert enkelt barn.</p>
+      <div class="btn-row">
+        <a href="#" class="btn btn-primary">Søk om plass</a>
+        <a href="#" class="btn btn-ghost" style="color:white; border-color:rgba(255,255,255,0.5);">Om Montessori</a>
+      </div>
+    </div>
+  </div>
+  <div class="note">Dette fotoet (fra fallskjermleken i gymsalen) er det eneste ekte bildet klart til bruk foreløpig — sterk kandidat til hero fordi det viser bevegelse, fellesskap og de sterke primærfargene som går igjen i Montessori-materiell.</div>
+
+  <div class="gallery-grid">
+    <div class="g-item p1"><span>Foto — barn i lek, gymsal/uterom</span></div>
+    <div class="g-item p2"><span>Foto — konkretiseringsmateriell</span></div>
+    <div class="g-item p3"><span>Foto — barnehageavdeling</span></div>
+    <div class="g-item p4"><span>Foto — skolehverdag/klasserom</span></div>
+    <div class="g-item p5"><span>Foto — ansatte/pedagog med barn</span></div>
+  </div>
+  <div class="note">Plassholderne over skal erstattes med: (1) ekte bilder fra skolens egen hverdag når dere har fått samtykke/fotodag, eller (2) i mellomtiden, lisensierte stockbilder fra Unsplash/Pexels av tilsvarende motiv. Ikke publiser plassholderfargene i produksjon — de er kun en visuell guide for hvor bilder skal inn og hvilken stemning/fargebalanse de bør ha.</div>
+
+  <h2>Sideoversikt og innhold</h2>
+  <p class="lede" style="margin-top:-8px;">Full struktur for den nye siden, til bruk som brief ved bygging.</p>
+
+  <div class="sitemap">
+
+    <div class="page-block">
+      <div><div class="page-num">01 · Forside</div><h3>Hjem</h3></div>
+      <ul>
+        <li>Kort, varm intro-tekst om Holmestrand Internasjonale Montessori som helhet</li>
+        <li>Tydelig vei inn til hhv. Barnehage og Skole (mange vet allerede hva de leter etter)</li>
+        <li>Bilder fra hverdagen — ikke stockbilder</li>
+        <li>Kontaktinfo og adresse rett synlig</li>
+      </ul>
+    </div>
+
+    <div class="page-block amber">
+      <div><div class="page-num">02 · Fagstoff</div><h3>Om Montessori</h3></div>
+      <ul>
+        <li>Forklaring av Montessori-metoden — aldersblandede grupper, konkretiseringsmateriell, selvstendighet</li>
+        <li>"Hjelp meg å gjøre det selv" — kjerneprinsippet forklart enkelt</li>
+        <li>Hvorfor foreldre velger Montessori fremfor kommunal skole/barnehage</li>
+      </ul>
+    </div>
+
+    <div class="page-block">
+      <div><div class="page-num">03 · Avdeling</div><h3>Barnehagen</h3></div>
+      <ul>
+        <li>Aldersgrupper/avdelinger</li>
+        <li>En dag i barnehagen (dagsrytme)</li>
+        <li>Opptak: søknadsprosess, frist, opptakskriterier, ventelister</li>
+        <li>Priser/foreldrebetaling, evt. lenke til Foreldreportalen</li>
+        <li>Ansatte/pedagogisk leder</li>
+      </ul>
+    </div>
+
+    <div class="page-block amber">
+      <div><div class="page-num">04 · Avdeling</div><h3>Skolen</h3></div>
+      <ul>
+        <li>Trinnstruktur (barnetrinn/ungdomstrinn)</li>
+        <li>Fagtilbud og hvordan Montessori følges opp gjennom skoleløpet</li>
+        <li>SFO-tilbud og åpningstider</li>
+        <li>Opptak/søknadsprosess for skoleplass</li>
+        <li>Lærerkollegiet/kontaktlærere</li>
+      </ul>
+    </div>
+
+    <div class="page-block">
+      <div><div class="page-num">05 · Praktisk</div><h3>Ny hos oss</h3></div>
+      <ul>
+        <li>Hva skal barnet ha med, oppstartsrutiner</li>
+        <li>Viktige datoer for nye familier</li>
+        <li>Ofte den mest besøkte siden for nye foreldre — bør være lett å finne fra forsiden</li>
+      </ul>
+    </div>
+
+    <div class="page-block amber">
+      <div><div class="page-num">06 · Aktivitet</div><h3>Kalender / Nyheter</h3></div>
+      <ul>
+        <li>Skolerute, ferier, planleggingsdager</li>
+        <li>Aktuelle hendelser, prosjekter, arrangementer</li>
+        <li>Viser at skolen "lever" — mangler helt på dagens side</li>
+      </ul>
+    </div>
+
+    <div class="page-block">
+      <div><div class="page-num">07 · Om oss</div><h3>Ansatte</h3></div>
+      <ul>
+        <li>Presentasjon av ledelse (Carsten Holm Tobiassen m.fl.), lærere, pedagoger</li>
+        <li>Styret — relevant å synliggjøre siden det er stiftelse/samvirkeforetak</li>
+      </ul>
+    </div>
+
+    <div class="page-block amber">
+      <div><div class="page-num">08 · Kontakt</div><h3>Kontakt oss</h3></div>
+      <ul>
+        <li>Egne kontaktpunkt for barnehage vs. skole (ulike ansvarlige/telefonnumre)</li>
+        <li>Kart/adresse (Eikelund 8)</li>
+      </ul>
+    </div>
+
+    <div class="page-block">
+      <div><div class="page-num">09 · Diverse</div><h3>Praktisk informasjon</h3></div>
+      <ul>
+        <li>Vedtekter/GDPR/personvern (lovpålagt for stiftelser og skoler)</li>
+        <li>Lenke til FAU (foreldreutvalg) hvis det finnes</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <h2>Til Claude Code</h2>
+  <div class="note" style="border-left-color:var(--brand-blue);">
+    Alle farger og fonter er satt som CSS-variabler i <code>:root</code> øverst i filen — kopier disse direkte inn i det nye prosjektets stilark. Amber/blå er de to bærende UI-fargene (knapper, lenker, kort-kanter, navigasjon). Rødt/gult/grønt er kun for sparsomme aksenter (ikoner, prikker, illustrasjon) — ikke UI-basisfarger. Bakgrunn holdes nøytral (hvit / varm off-white) slik at fargene fra logo og bilder får rom til å puste.
+  </div>
+
+</div>
+</body>
+</html>
