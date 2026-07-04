@@ -111,8 +111,11 @@ p.lede { color: var(--ink-soft); font-size: 1.05rem; max-width: 620px; }
   }
   .nav-links.open { display: flex; }
   .nav-hamburger { display: flex; }
-  .nav-logo span { display: none; }
-  .nav-cta { margin-left: auto; }
+  .nav-logo img { height: 30px; }
+  .nav-logo .lg-name { display: flex; flex-direction: column; line-height: 1.25; }
+  .nav-logo span { font-size: 0.68rem; }
+  .nav-logo .lg-line1 { white-space: nowrap; }
+  .nav-cta { padding: 8px 16px; font-size: 0.82rem; margin-left: auto; }
 }
 
 /* ===== Hero (forside) — full-bleed karusell ===== */
