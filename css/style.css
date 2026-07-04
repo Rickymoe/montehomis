@@ -339,6 +339,12 @@ p.lede { color: var(--ink-soft); font-size: 1.05rem; max-width: 620px; }
 .kmap { margin-top: 24px; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
 .kmap iframe { width: 100%; height: 320px; border: none; display: block; }
 
+.video-embed {
+  aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden;
+  box-shadow: var(--shadow); max-width: 720px; margin: 0 auto;
+}
+.video-embed iframe { width: 100%; height: 100%; border: none; display: block; }
+
 /* ===== Kalender ===== */
 .cal-list { display: flex; flex-direction: column; gap: 12px; }
 .cal-row { display: flex; gap: 18px; align-items: baseline; background: var(--paper-warm); border-radius: 12px; padding: 14px 20px; }
