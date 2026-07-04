@@ -84,9 +84,10 @@ p.lede { color: var(--ink-soft); font-size: 1.05rem; max-width: 620px; }
 .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 78px; gap: 20px; }
 .nav-logo { display: flex; align-items: center; gap: 10px; white-space: nowrap; }
 .nav-logo img { height: 36px; }
-.nav-logo span { font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; }
+.nav-logo span { font-family: var(--font-display); font-weight: 500; font-size: 1.05rem; }
 .nav-logo .lg-a { color: var(--accent-yellow); }
 .nav-logo .lg-b { color: var(--brand-blue); }
+.nav-logo .lg-c { color: var(--brand-blue); font-weight: 700; }
 .nav-links { display: flex; gap: 22px; align-items: center; }
 .nav-links a { font-size: 0.92rem; font-weight: 500; color: var(--ink); transition: color 0.15s ease; }
 .nav-links a:hover, .nav-links a.active { color: var(--brand-blue); }
@@ -308,9 +309,10 @@ p.lede { color: var(--ink-soft); font-size: 1.05rem; max-width: 620px; }
 .footer .footer-brand p { font-size: 0.9rem; opacity: 0.8; max-width: 280px; }
 .footer .footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
 .footer .footer-logo img { height: 34px; }
-.footer .footer-logo span { font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; }
+.footer .footer-logo span { font-family: var(--font-display); font-weight: 500; font-size: 1.05rem; }
 .footer .footer-logo .lg-a { color: var(--accent-yellow); }
 .footer .footer-logo .lg-b { color: var(--brand-blue); }
+.footer .footer-logo .lg-c { color: var(--brand-blue); font-weight: 700; }
 .footer ul { display: flex; flex-direction: column; gap: 8px; }
 .footer a { color: var(--paper-warm); opacity: 0.85; font-size: 0.9rem; }
 .footer a:hover { opacity: 1; text-decoration: underline; }
