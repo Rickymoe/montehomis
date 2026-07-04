@@ -82,8 +82,9 @@ p.lede { color: var(--ink-soft); font-size: 1.05rem; max-width: 620px; }
   border-bottom: 1px solid var(--line);
 }
 .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 78px; gap: 20px; }
-.nav-logo { display: flex; align-items: center; white-space: nowrap; }
-.nav-logo img { height: 44px; }
+.nav-logo { display: flex; align-items: center; gap: 10px; white-space: nowrap; }
+.nav-logo img { height: 36px; }
+.nav-logo span { font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; color: var(--brand-blue-dark); }
 .nav-links { display: flex; gap: 22px; align-items: center; }
 .nav-links a { font-size: 0.92rem; font-weight: 500; color: var(--ink); transition: color 0.15s ease; }
 .nav-links a:hover, .nav-links a.active { color: var(--brand-blue); }
