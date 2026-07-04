@@ -175,6 +175,18 @@ p.lede { color: var(--ink-soft); font-size: 1.05rem; max-width: 620px; }
 }
 @media (max-width: 900px) { .hero-quote { display: none; } }
 
+.quote-mobile { display: none; }
+.quote-block { text-align: center; max-width: 560px; margin: 0 auto; }
+.quote-block p {
+  font-family: var(--font-body); font-style: italic; font-size: 1.15rem; line-height: 1.55;
+  color: var(--ink); margin: 0 0 12px;
+}
+.quote-block cite {
+  font-family: var(--font-display); font-style: normal; font-weight: 600;
+  font-size: 0.9rem; color: var(--brand-amber-dark);
+}
+@media (max-width: 900px) { .quote-mobile { display: block; } }
+
 .hero-dots { position: absolute; bottom: 28px; right: 28px; z-index: 4; display: flex; gap: 8px; align-items: center; }
 .hero-dot {
   width: 8px; height: 8px; border-radius: 100px; background: rgba(255,255,255,.4);
