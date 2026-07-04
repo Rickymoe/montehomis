@@ -81,6 +81,7 @@ p.lede { color: var(--ink-soft); font-size: 1.05rem; max-width: 620px; }
   background: rgba(255,255,255,0.92); backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--line);
 }
+.nav.menu-open { background: var(--paper); backdrop-filter: none; -webkit-backdrop-filter: none; }
 .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 78px; gap: 20px; }
 .nav-logo { display: flex; align-items: center; gap: 10px; white-space: nowrap; }
 .nav-logo img { height: 36px; }
@@ -117,10 +118,10 @@ p.lede { color: var(--ink-soft); font-size: 1.05rem; max-width: 620px; }
   .nav-links.open { display: flex; visibility: visible; opacity: 1; transform: translateY(0); }
   .nav-links li { border-bottom: 1px solid var(--line); }
   .nav-links a {
-    padding: 18px 28px; gap: 16px; font-family: var(--font-display); font-weight: 600; font-size: 1.1rem;
+    padding: 22px 28px; gap: 18px; font-family: var(--font-display); font-weight: 600; font-size: 1.3rem;
   }
   .nav-links a:active { background: var(--paper-warm); }
-  .nav-links .nl-icon { display: inline-flex; align-items: center; justify-content: center; width: 28px; font-size: 1.3rem; }
+  .nav-links .nl-icon { display: inline-flex; align-items: center; justify-content: center; width: 32px; font-size: 1.6rem; }
   .nav-hamburger { display: flex; }
   .nav-logo img { height: 30px; }
   .nav-logo .lg-name { display: flex; flex-direction: column; line-height: 1.25; }

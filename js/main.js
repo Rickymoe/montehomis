@@ -56,10 +56,16 @@ function initNav() {
   });
   const hamburger = document.querySelector('.nav-hamburger');
   const links = document.querySelector('.nav-links');
+  const nav = document.querySelector('.nav');
   if (hamburger && links) {
     hamburger.addEventListener('click', () => {
       const isOpen = links.classList.toggle('open');
       hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      // nav's backdrop-filter creates a new containing block for the fixed
+      // .nav-links panel; some mobile browsers then size its height against
+      // the ~78px nav bar instead of the real viewport. Drop the filter
+      // while the menu is open so the panel sizes correctly.
+      nav.classList.toggle('menu-open', isOpen);
     });
   }
 }
